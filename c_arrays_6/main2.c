@@ -34,7 +34,6 @@ int main(void){
 	int arr2[COUNT] = {0,1,2};
 	int *p = &arr2[0]; //Pointer to first elem
 					  //Also the same as -> int *p = arr;
-	print_arr(p);
 	
 
 	return 0;

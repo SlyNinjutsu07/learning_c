@@ -10,8 +10,11 @@ int main(void){
 	addTo(&val, 2);
 	printf("%d\n",val);
 
-	int *val2 = ret_ptr_in_arr(a, 3);
+	int *val2 = ret_ptr_in_arr(a, 3, 5);
 	printf("%d\n", *val2);
+
+	//arr_times_2(a, 10);
+	print_arr(a, 5);
 
 	return 0;
 }

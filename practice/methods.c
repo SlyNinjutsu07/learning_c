@@ -24,4 +24,19 @@ void arr_times_2(int *a, int len){
 		a[i] *= 2;
 }
 
-//int if_len_valid(int x){
+int recurse_to_zero(int *p){
+	if(*p == 0){
+		printf("0\n");
+		return 0;
+	}
+	else{
+		printf("%d -> ", *p);
+		*p -= 1;
+		return recurse_to_zero(p);
+	}
+}
+
+int is_age_valid(int age){
+	if(age >= 18) return 1;
+	else return 0;
+}

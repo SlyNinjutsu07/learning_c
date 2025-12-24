@@ -17,7 +17,7 @@ int main(void){
 
 	//char *s and char s[] different
 	
-	//char *s holdes a pointer to a string literal
+	//char *s holds a pointer to a string literal
 	//stored in read-only memory. Thus, although
 	//you can access it like an array, you can't 
 	//modify each individual element

@@ -4,4 +4,8 @@ There is a specially defined macro called EOF. A macro is one of those things yo
 
 #define COUNT 5
 
-Basically any mentions of "COUNT" is replaced with the number '5' when the program runs through the code, and that is what a "macro" is. EOF is a macro that returns a char that symbolizes the end of the file in a text file. But there is no such representation for this "end-of-line" char, so it's not a part of the 255 combinations for a char. Thus, in order to return EOF along with all the possible chars, the following function has to return an 'int': fgetc(FILE *f). This is also possible because char's are also ints, or can be expressed through int.
+Basically any mentions of "COUNT" is replaced with the number '5' when the program runs through the code, and that is what a "macro" is. 
+EOF is a macro that returns a char that symbolizes the end of the file in a text file. 
+But there is no such representation for this "end-of-line" char, so it's not a part of the 255 combinations for a char. 
+Thus, in order to return EOF along with all the possible chars, the following function has to return an 'int': fgetc(FILE *f). 
+This is also possible because char's are also ints, or can be expressed through int.

@@ -12,6 +12,9 @@ This is also possible because char's are also ints, or can be expressed through 
 
 ## How fgets() works
 
+> [!NOTE]
+> Can be read as "`f`ile `get` `s`tring"
+
 Basically, `fgets()` takes the input of the `char *` variable (or string),
 takes the size of the string-because you can't deduce it when you pass
 the variable into an array-, and then takes the File it is reading from.

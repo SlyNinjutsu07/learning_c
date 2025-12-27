@@ -62,3 +62,30 @@ unsigned int bytes[6];
 int result = fread(bytes, sizeof(char), **10**, fp);
 // result = 6 because only 6 chunks of 1 byte were read.
 ```
+
+#### Serializing binary data
+
+```c
+struct Person {
+    char name[20];
+    int age;
+    double salary;
+};
+
+// Serialize: Write struct to file
+struct Person p = {"Alice", 30, 75000.50};
+FILE *fp = fopen("person.bin", "wb");
+fwrite(&p, sizeof(struct Person), 1, fp);  // Convert to bytes
+fclose(fp);
+
+// Deserialize: Read struct from file
+struct Person p2;
+FILE *fp = fopen("person.bin", "rb");
+fread(&p2, sizeof(struct Person), 1, fp);  // Reconstruct from bytes
+fclose(fp);
+
+printf("%s, %d, %.2f\n", p2.name, p2.age, p2.salary);
+// Output: Alice, 30, 75000.50
+```
+
+

@@ -21,3 +21,17 @@ the variable into an array-, and then takes the File it is reading from.
 > passed into an array. Thus, passing in JUST the string, will not
 > allow for an accurate `sizeof()` operation. It will read 8 bytes
 > instead of the actual size, because it will read the size of the pointer.
+
+12/27/25
+
+> [!NOTE]
+> `scanf()` style functions are harzardous when it comes to *untrusted* input.
+> They can overflow with input (overflowing the buffer) if you do not specify
+> the field width (size) of `%s`. Also unsafe with numeric conversions, which
+> is why `strtol() (= str to long int)` and `strtod() (= str to double)` exist.
+
+`fscanf()`
+: (FILE* filePtr, "`format specifiers (%s)`", &varForSpecifier1, &vFS2,...)
+: returns an int to show all variabels successfully matched with a value
+: returns 0 if there was input but not variables to put them in
+: returns EOF if reached end-of-file

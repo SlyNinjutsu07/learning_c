@@ -34,7 +34,31 @@ the variable into an array-, and then takes the File it is reading from.
 > is why `strtol() (= str to long int)` and `strtod() (= str to double)` exist.
 
 `fscanf()`
-: (FILE* filePtr, "`format specifiers (%s)`", &varForSpecifier1, &vFS2,...)
-: returns an int to show all variabels successfully matched with a value
-: returns 0 if there was input but not variables to put them in
-: returns EOF if reached end-of-file
+- (FILE* filePtr, "`format specifiers (%s)`", &varForSpecifier1, &vFS2,...)
+- returns an int to show all variabels successfully matched with a value
+- returns 0 if there was input but not variables to put them in
+- returns EOF if reached end-of-file
+
+#### Printing Binary
+
+- Common functions for writing to binary files (`.bin`) are `fwrite()` and `fread()`.
+- When opening a `.bin` file (`fp = fopen("output.bin", "wb")`) we
+need to add 'b' after 'r' or 'w' when reading or writing.
+'b' = `binary`.
+
+##### How `fread()` works
+
+`fread(ptr to allocation, size of each byte, how many bytes to read at a time, FILE ptr)`
+
+Essentially `fread()` returns the # of items it reads.
+`fread()` distinguishes an item by the amount of bytes we specify:
+- Bytes to read: `sizeOfEachItem` * `numOfItems`
+- Returns: How many chunks of `sizeOfEachItem` bytes were read
+
+Thus, if we have 6 items of 1 byte each, but instead we say 10...
+
+```
+unsigned int bytes[6];
+int result = fread(bytes, sizeof(char), **10**, fp);
+// result = 6 because only 6 chunks of 1 byte were read.
+```

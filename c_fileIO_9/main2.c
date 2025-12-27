@@ -12,6 +12,13 @@ int main(void){
 				printf("%s whale is %d tonnes and %f meters long\n", s, mass, length);
 		fclose(fp);
 
+		fp = fopen("output.txt", "w");//Write mode & and generate a new txt file
+		fputc('A', fp);//File put char
+		fputc('\n', fp);
+		fprintf(fp, "x = %d\n", mass);//File print formatted
+		fputs("your mom", fp);//File put string
+		fclose(fp);
+
 		return 0;
 }
 

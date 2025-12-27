@@ -57,7 +57,7 @@ Essentially `fread()` returns the # of items it reads.
 
 Thus, if we have 6 items of 1 byte each, but instead we say 10...
 
-```
+```c
 unsigned int bytes[6];
 int result = fread(bytes, sizeof(char), **10**, fp);
 // result = 6 because only 6 chunks of 1 byte were read.

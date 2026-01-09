@@ -7,7 +7,7 @@ There is a specially defined macro called EOF. A macro is one of those things yo
 Basically any mentions of "COUNT" is replaced with the number '5' when the program runs through the code, and that is what a "macro" is.
 EOF is a macro that returns a char that symbolizes the end of the file in a text file.
 But there is no such representation for this "end-of-line" char, so it's not a part of the 255 combinations for a char. 
-Thus, in order to return EOF along with all the possible chars, the following function has to return an 'int': fgetc(FILE *f).(* Had to remove italics)
+Thus, in order to return EOF along with all the possible chars, the following function has to return an 'int': fgetc(FILE **f*).
 This is also possible because char's are also ints, or can be expressed through int.
 
 ## How fgets() works
@@ -34,7 +34,7 @@ the variable into an array-, and then takes the File it is reading from.
 > is why `strtol() (= str to long int)` and `strtod() (= str to double)` exist.
 
 `fscanf()`
-- (FILE* filePtr, "`format specifiers (%s)`", &varForSpecifier1, &vFS2,...)
+- (FILE **filePtr*, "`format specifiers (%s)`", &varForSpecifier1, &vFS2,...)
 - returns an int to show all variabels successfully matched with a value
 - returns 0 if there was input but not variables to put them in
 - returns EOF if reached end-of-file
@@ -85,6 +85,7 @@ fread(&p2, sizeof(struct Person), 1, fp);  // Reconstruct from bytes
 fclose(fp);
 
 printf("%s, %d, %.2f\n", p2.name, p2.age, p2.salary);
+
 // Output: Alice, 30, 75000.50
 ```
 

@@ -1,19 +1,15 @@
 #include <stdio.h>
-#include <string.h>
 
 int main(void){
 
     FILE *fo = fopen("text.bin", "rb");
-    char *text[64];
+    char text[64];
 
-    int count = 0;
-    while(fread(text, 1, 1, fo) > 0) {
-        printf("%c", text[count]);
-        count++;
-    }
+    fgets(text, sizeof text, fo);
+    //fread(text, sizeof(char), sizeof text, fo);
     fclose(fo);
 
-    printf("%s", text);
+    printf("%s\n", text);
 
     return 0;
 }

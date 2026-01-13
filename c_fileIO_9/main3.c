@@ -16,7 +16,7 @@ int main(void){
 		unsigned char bytes2;
 		while(fread(&bytes2, sizeof(char), 1, fp) > 0)//We're using & because we haven't specified
 				printf("%d ", bytes2);										//bytes2 as a pointer OR an array
-		printf("\n");
+		printf("%d\n", bytes2);
 		
 		fclose(fp);
 

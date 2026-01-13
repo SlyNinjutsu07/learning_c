@@ -3,13 +3,14 @@
 int main(void){
 
     FILE *fo = fopen("text.bin", "rb");
-    char text[64];
+    char text[256];
 
-    fgets(text, sizeof text, fo);
+    while(fgets(text, sizeof text, fo) != NULL)
+      printf("%s", text);
+    //while(fgets(text, sizeof text, fo) != NULL) //Ends at '\n'
     //fread(text, sizeof(char), sizeof text, fo);
     fclose(fo);
 
-    printf("%s\n", text);
 
     return 0;
 }
